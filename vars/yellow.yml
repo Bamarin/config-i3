@@ -1,0 +1,4 @@
+# => inherits: generic <= #
+font:
+    name: Hack
+    size: 10

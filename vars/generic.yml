@@ -1,0 +1,7 @@
+features:
+    - i3
+
+i3:
+    mod_key: Mod4
+    terminal: st
+    launcher: rofi -show run
