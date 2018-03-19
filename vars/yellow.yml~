@@ -1,4 +1,5 @@
 # => inherits: generic <= #
 font:
     name: Hack
-    size: 12
+    size: 10
+background: ~/Pictures/killua.png
