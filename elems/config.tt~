@@ -17,7 +17,7 @@ new_window 1pixel
 #
 
 #Background
-exec --no-startup-id feh --bg-scale <%= local! :font_name %>
+exec --no-startup-id feh --bg-scale <%= local! :desktop %>
 
 # i3 config file (v4)
 #
@@ -54,7 +54,7 @@ bindsym $mod+Return exec <%= local! :term %>
 bindsym $mod+Shift+q kill
 
 # lock the screen
-bindsym $mod+Ctrl+l exec i3lock -ei /home/paolo21/Immagini/ArchBlock.png
+bindsym $mod+Ctrl+l exec i3lock -ei <%= local! :desktop %>
 
 # start rofi instead of dmenu (a program launcher)
 bindsym $mod+d exec rofi -show run
@@ -204,17 +204,17 @@ bar {
   
   separator_symbol "|"
   colors {
-    separator #7d7d7d
-    background #141414
-    statusline #00b0ef
-    focused_workspace #00b0ef #141414 #00b0ef
-    active_workspace #141414 #141414 #00b0ef
-    inactive_workspace #141414 #141414 #7d7d7d
-    urgent_workspace #ddb000 #141414 #ddb000
+    background #44475A
+    separator #282a36
+    statusline #bd93f9
+    focused_workspace #8be9fd #44475a #8be9fd
+    active_workspace #44475a #44475a #8be9fd
+    inactive_workspace #44475a #44475a #7d7d7d
+    urgent_workspace #ddb000 #44475a #ddb000
   }
 }
 
-client.focused #00b0ef #00b0ef #141414 #ddb000
-client.focused_inactive #141414 #141414 #00b0ef #472b2a
-client.unfocused #141414 #141414 #7d7d7d #141414
-client.urgent #ddb000 #ddb000 #141414 #ddb000
+client.focused #8be9fd #8be9fd #44475a #ddb000
+client.focused_inactive #44475a #44475a #8be9fd #472b2a
+client.unfocused #44475a #44475a #7d7d7d #44475a
+client.urgent #ddb000 #ddb000 #44475a #ddb000
