@@ -1,9 +1,9 @@
 general {
   colors = true
   interval = 5
-  color_good = "#66BB6A"
-  color_degraded = "#FFEB3B"
-  color_bad = "#F44336"
+  color_good = "#50fa7b"
+  color_degraded = "#f1fa7b"
+  color_bad = "#ff5555"
 }
 
 order += "static_string"
@@ -14,25 +14,30 @@ order += "bluetooth"
 order += "battery_level"
 order += "clock"
 
+#
 static_string {
-    format = ""
+    format = ""
 }
 
 clock {
     format_time = "%d/%m/%Y %H:%M:%S"
 }
 
+#   
 battery_level {
-  hide_when_full = False 
+  blocks = ""
+  charging_character = " "
   notify_low_level = True
-  format = " {percent}%"
+  format = "{icon}{percent}%"
   notification = True
-  format_notify_charging = " {percent}%≈{time_remaining}"
-  format_notify_discharging = " {percent}%≈{time_remaining}"
+  format_notify_charging = " {percent}%≈{time_remaining}"
+  format_notify_discharging = "  {percent}%≈{time_remaining}"
 }
 
 bluetooth {
-    format = " {format_device}"
+    format = " "
+	color_bad = "#282a36"
+	color_good = "#8be9fd"
 }
 
 sysdata {
@@ -50,8 +55,9 @@ group netinfo {
   button_prev = 3
 
   format = "{output} {button}"
-  format_button_closed = ""
-  format_button_open = ""
+  format_button_closed = ""
+  #
+  format_button_open = ""
 
   whatismyip {}
   wifi {}
@@ -64,17 +70,18 @@ group netinfo {
 }
 
 volume_status {
+	cache_timeout = 1
     thresholds = [
-        (0, "#F1F8E9"),
-        (10, "#DCEDC8"),
-        (20, "#C5E1A5"),
-        (30, "#AED581"),
-        (40, "#D4E157"),
-        (50, "#CDDC39"),
-        (60, "#C0CA33"),
-        (70, "#FFB300"),
-        (80, "#FFA000"),
-        (90, "#E65100")
+        (0,  "#282a36"),
+        (10, "#333f4c"),
+        (20, "#3e5462"),
+        (30, "#496978"),
+        (40, "#547e8e"),
+        (50, "#5f94a4"),
+        (60, "#6aa9ba"),
+        (70, "#75bed0"),
+        (80, "#80d3e6"),
+        (90, "#8be9fd")
     ]
     format_muted = " Mute"
     format = " {percentage}%"

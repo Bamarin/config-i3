@@ -129,7 +129,7 @@ bindsym $mod+a focus parent
 set $ter "2"
 set $www "3"
 set $slack "7"
-set $tele "8"
+set $tele "8"
 
 # switch to workspace
 bindsym $mod+1 workspace 1
