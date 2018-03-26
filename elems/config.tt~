@@ -1,6 +1,6 @@
 <%
 	define_locals do
-		variable "background", as: :desktop
+		variable "wallpaper", as: :wallpaper
 		variable "font.name", as: :font_name
 		variable "font.size", as: :font_size
 		variable "i3.mod_key", as: :mod_key
@@ -17,7 +17,7 @@ new_window 1pixel
 #
 
 #Background
-exec --no-startup-id feh --bg-scale <%= local! :desktop %>
+exec --no-startup-id feh --bg-scale <%= local! :wallpaper %>
 
 # i3 config file (v4)
 #
@@ -54,7 +54,7 @@ bindsym $mod+Return exec <%= local! :term %>
 bindsym $mod+Shift+q kill
 
 # lock the screen
-bindsym $mod+Ctrl+l exec i3lock -ei <%= local! :desktop %>
+bindsym $mod+Ctrl+l exec i3lock -ei <%= local! :wallpaper %>
 
 # start rofi instead of dmenu (a program launcher)
 bindsym $mod+d exec rofi -show run
@@ -129,7 +129,7 @@ bindsym $mod+a focus parent
 set $ter "2"
 set $www "3"
 set $slack "7"
-set $tele "8"
+set $tele "8"
 
 # switch to workspace
 bindsym $mod+1 workspace 1

@@ -1,10 +1,27 @@
+<%
+	define_locals do
+        variable "color.dracula.baseBG", as: :background
+        variable "color.dracula.baseFG", as: :foreground
+        variable "color.dracula.base00", as: :black
+        variable "color.dracula.base01", as: :red
+        variable "color.dracula.base02", as: :green
+        variable "color.dracula.base03", as: :yellow
+        variable "color.dracula.base04", as: :blue
+        variable "color.dracula.base05", as: :magenta
+        variable "color.dracula.base06", as: :cyan
+        variable "color.dracula.base07", as: :bright
+        variable "color.dracula.base08", as: :dark
+        variable "color.dracula.base0F", as: :white
+	end
+%>
 general {
   colors = true
   interval = 5
-  color_good = "#50fa7b"
-  color_degraded = "#f1fa7b"
-  color_bad = "#ff5555"
+  color_good = "<%= local! :green %>"
+  color_degraded = "<%= local! :yellow %>"
+  color_bad = "<%= local! :red %>"
 }
+
 
 order += "static_string"
 order += "volume_status"
@@ -14,21 +31,25 @@ order += "bluetooth"
 order += "battery_level"
 order += "clock"
 
-#
 static_string {
+	<% if has_feature? :arch %>
+    format = ""
+	<% end %>
+	<% if has_feature? :void %>
     format = ""
+	<% end %>
 }
 
 clock {
     format_time = "%d/%m/%Y %H:%M:%S"
 }
 
-#   
 battery_level {
   blocks = ""
   charging_character = " "
+  color_charging = "<%= local! :yellow %>"
   notify_low_level = True
-  format = "{icon}{percent}%"
+  format = "{percent}%{icon}"
   notification = True
   format_notify_charging = " {percent}%≈{time_remaining}"
   format_notify_discharging = "  {percent}%≈{time_remaining}"
@@ -36,8 +57,8 @@ battery_level {
 
 bluetooth {
     format = " "
-	color_bad = "#282a36"
-	color_good = "#8be9fd"
+	color_bad = "<%= local! :background %>"
+	color_good = "<%= local! :blue %>"
 }
 
 sysdata {
@@ -70,9 +91,10 @@ group netinfo {
 }
 
 volume_status {
+	button_mute = 1
 	cache_timeout = 1
     thresholds = [
-        (0,  "#282a36"),
+        (0,  "<%= local! :background %>" ),
         (10, "#333f4c"),
         (20, "#3e5462"),
         (30, "#496978"),
@@ -81,7 +103,7 @@ volume_status {
         (60, "#6aa9ba"),
         (70, "#75bed0"),
         (80, "#80d3e6"),
-        (90, "#8be9fd")
+        (90, "<%= local! :cyan %>" )
     ]
     format_muted = " Mute"
     format = " {percentage}%"

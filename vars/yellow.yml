@@ -1,5 +1,28 @@
 # => inherits: generic <= #
+#features:
+#    - i3
+#
+#i3:
+#    mod_key: Mod4
+#    terminal: st
+#    launcher: rofi -show run
+features:
+    - void
 font:
     name: Hack
     size: 10
-background: ~/Pictures/void-logo-dracula.png
+wallpaper: ~/Pictures/void-logo-dracula.png
+color:
+    dracula:
+        baseBG : "#282a36"
+        baseFG : "#f8f8f2"
+        base00 : "#000000"
+        base01 : "#ff5555"
+        base02 : "#50fa7b"
+        base03 : "#f1fa8c"
+        base04 : "#bd93f9"
+        base05 : "#ff79c6"
+        base06 : "#8be9fd"
+        base07 : "#bbbbbb"
+        base08 : "#44475a"
+        base0F : "#ffffff"
