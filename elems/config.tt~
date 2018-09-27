@@ -83,7 +83,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Ctrl+l exec i3lock -ei <%= local! :wallpaper %>
 
 # start rofi instead of dmenu (a program launcher)
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec rofi -theme ~/Documents/Base16/rofi/themes base16-dracula -show run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -230,18 +230,18 @@ bar {
   
   separator_symbol "|"
   colors {
-    background #44475a
-    separator #282a36
-    statusline #bd93f9
+    background	$base08
+    separator	$baseBG
+    statusline	$base04
 #   class				num		bg		fram
-    focused_workspace	#8be9fd #44475a #8be9fd
-    active_workspace	#44475a #44475a #8be9fd
-    inactive_workspace	#44475a #44475a #282a36
-    urgent_workspace	#ff79c6 #44475a #ff79c6
+    focused_workspace	$base06 $base08 $base06
+    active_workspace	$base08 $base08 $base06
+    inactive_workspace	$base08 $base08 $baseBG
+    urgent_workspace	$base05 $base08 $base05
   }
 }
 # class                 border  backgr. text    indicator
-client.focused			#bd93f9 #bd93f9 #44475a #ff79c6
-client.focused_inactive	#44475a #44475a #bd93f9 #44475a
-client.unfocused		#44475a #44475a #282a36 #44475a
-client.urgent			#ff79c6 #ff79c6 #44475a #ff79c6
+client.focused			$base04 $base04 $base08 $base05
+client.focused_inactive	$base08 $base08 $base04 $base08
+client.unfocused		$base08 $base08 $baseBG $base08
+client.urgent			$base05 $base05 $base08 $base05

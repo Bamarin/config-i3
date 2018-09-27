@@ -91,10 +91,11 @@ group netinfo {
 }
 
 volume_status {
+	command = "amixer"
 	button_mute = 1
 	cache_timeout = 1
     thresholds = [
-        (0,  "<%= local! :background %>" ),
+        (0,  "<%= local! :background %>"),
         (10, "#333f4c"),
         (20, "#3e5462"),
         (30, "#496978"),
@@ -103,7 +104,7 @@ volume_status {
         (60, "#6aa9ba"),
         (70, "#75bed0"),
         (80, "#80d3e6"),
-        (90, "<%= local! :cyan %>" )
+        (90, "<%= local! :cyan %>")
     ]
     format_muted = " Mute"
     format = " {percentage}%"
